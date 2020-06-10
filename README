@@ -1,29 +1,31 @@
-#######################################################################
-# Addon to provide Encode/DecodeBase64 custom search command 
-#######################################################################
+# TA-base64
+
+## Addon to provide Encode/DecodeBase64 custom search command 
 
 Original Author: Cedric Le Roux
+
 Author: Cameron Just (upgraded for Splunk 8.x compatibility)
+
 Version: 2.0.0
+
 Splunkbase URL: https://splunkbase.splunk.com/app/1922/
 
 Description: Provides custom command for base64 encoding and decoding
 
-#######################################################################
-# Changelog
-# 1.1   - Initial Splunk 6.3 version from Splunkbase
-# 2.0.0 - Upgraded splunklib and b64.py to be Splunk 8.x compatible
-# 2.0.1 - Added in the ability for carriage return and line feed passthrough + Added fixing up of incorrect padding
+## Changelog
+- 1.1   - Initial Splunk 6.3 version from Splunkbase
+- 2.0.0 - Upgraded splunklib and b64.py to be Splunk 8.x compatible
+- 2.0.1 - Added in the ability for carriage return and line feed passthrough + Added fixing up of incorrect padding
 
 
 
 
 
-#######################################################################
-# Splunklib doesn't pass Splunk Upgrade Readiness App Checker
-#
-# Ref: https://community.splunk.com/t5/Developing-for-Splunk-Enterprise/Splunklib-Python-SDK-doesn-t-pass-Splunk-8-x-Upgrade-Readiness/td-p/503646
-#######################################################################
+___________________________________________________________________
+**Splunklib doesn't pass Splunk Upgrade Readiness App Checker**
+
+Ref: https://community.splunk.com/t5/Developing-for-Splunk-Enterprise/Splunklib-Python-SDK-doesn-t-pass-Splunk-8-x-Upgrade-Readiness/td-p/503646
+___________________________________________________________________
 
 Hi All,
 
