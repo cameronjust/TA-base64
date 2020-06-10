@@ -1,0 +1,60 @@
+#!/usr/bin/env python
+# coding=utf-8
+
+import sys, os, math
+from base64 import b64decode, b64encode
+
+module = sys.modules['base64']
+
+suppress_error = False
+original = "QUVNTyBFTEVDVFJJQ0lUWSBNQVJLRVQgTk9USUNFDQoNCk5PTi1DT05GT1JNQU5DRSBRTEQxIFJlZ2lvbiBXZWRuZXNkYXksIDEwIEp1bmUgMjAyMA0KDQpBRU1PIGRlY2xhcmVkIGEgc2NoZWR1bGUgZ2VuZXJhdGluZyB"
+original = "QUVNTyBFTEVDVFJJQ0lUWSBNQVJLRVQgTk9USUNFDQoNCklzc3VlZCBieSBBdXN0cmFsaWFuIEVuZXJneSBNYXJrZXQgT3BlcmF0b3IgTHRkIGF0IDAxMDAgaHJzIG9uIDkgSnVuZSAyMDIwDQoNClBSSUNFUyBBUkUgTk9XIENPTkZJUk1FRCBmb3IgZGlzcGF0Y2ggaW50ZXJ2YWwgMDktSnVuLTIwMjAgMDA6NTUuDQoNCkluIGFjY29yZGFuY2Ugd2l0aCBNYXJrZXQgTm90aWNlIDc1OTE0IEFFTU8gaGFzIHJldmlld2VkIHRoaXMgZGlzcGF0Y2ggaW50ZXJ2YWwgYW5kIGRldGVybWluZWQgdGhhdDoNCiAgICAtIE1hbmlmZXN0bHkgSW5jb3JyZWN0IElucHV0cyBkaWQgbm90IGFwcGx5DQoNClByaWNlcyByZW1haW4gdW5jaGFuZ2VkLg0KDQoNClRoaXMgaXMgYW4gQUVNTyBhdXRvZ2VuZXJhdGVkIE1hcmtldCBOb3RpY2Uu"
+# original = "QUVNTyBFTEVDVFJJQ0lUWSBNQVJLRVQgTk9USUNFCgpOT04tQ09ORk9STUFOQ0UgUUxEMSBSZWdpb24gV2VkbmVzZGF5LCAxMCBKdW5lIDIwMjAKCkFFTU8gZGVjbGFyZWQgYSBzY2hlZHVsZSBnZW5lcmF0aW5nIA=="
+
+# original = original.ljust((int)(math.ceil(len(original) / 4)) * 4, '=')
+
+print(original)
+fct = "b64decode"
+# fct = "b64encode"
+
+special_chars = "remove"
+special_chars = "hash"
+special_chars = "star"
+special_chars = "keep"
+special_chars = "convert_newlines"
+
+ret = getattr(module, fct)( original )
+
+print(ret)
+
+# replace unpritable characters by their hexadecimal 
+# representation. Example: \x00
+conversion = ""
+for c in ret:
+
+	print(c)
+	print(ord(c))
+	
+	x = c
+	
+	# Ref: http://www.asciitable.com/
+	if ord(c) < ord(' ') or ord(c) > ord('~') :
+		if special_chars == "remove":
+			continue
+		elif special_chars == "hash":
+			x = "#"
+		elif special_chars == "star":
+			x = "*"
+		elif special_chars == "convert_newlines" and ord(c)== 10:
+			x = "\n"
+		elif special_chars == "convert_newlines" and ord(c) == 13:
+			x = "\r"
+		else:
+			x = "\\x" + "{0:02x}".format(ord(c))
+	else:
+		x = c
+		
+	conversion += x
+
+
+print(conversion)
