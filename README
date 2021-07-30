@@ -30,7 +30,7 @@ Description: Provides custom command for base64 encoding and decoding
 | table _time encodedField* otherEncodedField* *
 
 
-
+ 
 
 ___________________________________________________________________
 **Splunklib doesn't pass Splunk Upgrade Readiness App Checker**
