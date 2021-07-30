@@ -37,7 +37,7 @@ class B64Command(StreamingCommand):
 			fct = "b64encode"
 
 		if self.mode == "append" :
-			dest_field = "base64"
+			dest_field = self.field + "_base64"
 		else:
 			dest_field = self.field
 
@@ -47,13 +47,22 @@ class B64Command(StreamingCommand):
 				continue
 
 			try:
-			
-				# Fix padding
-				if self.fix_padding:
-					original = event[self.field].ljust((int)(math.ceil(len(event[self.field]) / 4)) * 4, '=')
-				else:
-					original = event[self.field]
-				
+
+				if fct == "b64encode":
+					# Convert to bytestring if encode and the field is a string
+					if isinstance(event[self.field], str):
+						original = event[self.field].encode("utf-8")
+					else:
+						original = event[self.field]
+
+				if fct == "b64decode":
+					# Fix padding
+					if self.fix_padding:
+						original = event[self.field].ljust((int)(math.ceil(len(event[self.field]) / 4)) * 4, '=')
+					else:
+						original = event[self.field]
+
+					
 				ret = getattr(module, fct)( original )
 
 				# replace unpritable characters by their hexadecimal 
