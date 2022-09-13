@@ -6,7 +6,7 @@ Original Author: Cedric Le Roux
 
 Author: Cameron Just (upgraded for Splunk 8.x compatibility)
 
-Version: 2.0.2
+Version: 2.1.0
 
 Splunkbase URL: https://splunkbase.splunk.com/app/1922/
 
@@ -17,6 +17,7 @@ Description: Provides custom command for base64 encoding and decoding
 - 2.0.0 - Upgraded splunklib and b64.py to be Splunk 8.x compatible
 - 2.0.1 - Added in the ability for carriage return and line feed passthrough + Added fixing up of incorrect padding
 - 2.0.2 - Updated Splunklib and fixed up encode commands
+- 2.1.0 - Updated Splunklib and fixed up encode commands
 
 
 ###### Example Search #####
