@@ -5,7 +5,7 @@ import sys, os, math
 from base64 import b64decode, b64encode
 
 splunkhome = os.environ['SPLUNK_HOME']
-sys.path.append(os.path.join(splunkhome, 'etc', 'apps', 'TA-base64', 'lib'))
+# sys.path.append(os.path.join(splunkhome, 'etc', 'apps', 'TA-base64', 'lib'))
 from splunklib.searchcommands import dispatch, StreamingCommand, Configuration, Option, validators
 from splunklib.six.moves import range
 
