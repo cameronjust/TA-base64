@@ -1,4 +1,4 @@
 []
-access = read : [ * ], write : [ admin, power ]
+access = read : [ * ], write : [ sc_admin, admin, power ]
 export = system
 
