@@ -6,7 +6,7 @@
 * Has index-time operations: No
 * Input requirements: None
 * Supported product(s): 8.x, 9.x
-* Version: 2.1.1
+* Version: 2.1.2
 * Deployable: Yes
 
 -------------------------------
@@ -27,6 +27,7 @@ Original App Splunkbase URL: https://splunkbase.splunk.com/app/1922/
 * 2.0.2 - Updated Splunklib and fixed up encode commands
 * 2.1.0 - Updated Splunklib
 * 2.1.1 - Moved splunklib into bin directory to appease appinspect
+* 2.1.2 - Updated Splunklib to 2.1.1
 
 -------------------------------
 ## Example Searches
